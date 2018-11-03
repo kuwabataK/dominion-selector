@@ -1,0 +1,7 @@
+{
+  "name": "dominion-selector",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
