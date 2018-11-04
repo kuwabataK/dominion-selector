@@ -221,17 +221,25 @@ var HomePage = /** @class */ (function () {
     }
     HomePage.prototype.ionViewDidEnter = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var loading, all_c;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
+            var loading, all_c, i, rand, _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
                         loading = this.loadingCtrl.create({ content: "Loading..." });
                         return [4 /*yield*/, loading.present()];
                     case 1:
-                        _a.sent();
-                        return [4 /*yield*/, this.card_provider.getAll()];
+                        _b.sent();
+                        return [4 /*yield*/, this.card_provider.getAll()
+                            // 配列の値をランダムに入れ替える
+                        ];
                     case 2:
-                        all_c = _a.sent();
+                        all_c = _b.sent();
+                        // 配列の値をランダムに入れ替える
+                        for (i = all_c[0].cards.length - 1; i >= 0; i--) {
+                            rand = Math.floor(Math.random() * (i + 1));
+                            // 配列の数値を入れ替える
+                            _a = [all_c[0].cards[rand], all_c[0].cards[i]], all_c[0].cards[i] = _a[0], all_c[0].cards[rand] = _a[1];
+                        }
                         this.card_list = all_c[0].cards; // とりあえず基本だけ読み込む
                         this.attendants = [];
                         this.yes_card_list = [];

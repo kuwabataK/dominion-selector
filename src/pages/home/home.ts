@@ -59,6 +59,18 @@ export class HomePage {
     await loading.present()
 
     const all_c = await this.card_provider.getAll()
+
+    // 配列の値をランダムに入れ替える
+    for (var i = all_c[0].cards.length - 1; i >= 0; i--){
+
+      // 0~iのランダムな数値を取得
+      var rand = Math.floor( Math.random() * ( i + 1 ) );
+    
+      // 配列の数値を入れ替える
+      [all_c[0].cards[i], all_c[0].cards[rand]] = [all_c[0].cards[rand], all_c[0].cards[i]]
+    
+    }
+
     this.card_list = all_c[0].cards // とりあえず基本だけ読み込む
     this.attendants = []
     this.yes_card_list = []
