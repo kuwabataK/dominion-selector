@@ -11,6 +11,9 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
+import { CardListProvider } from '../providers/card-list/card-list';
+import {HttpModule} from '@angular/http';
+import { ResultPage } from '../pages/result/result';
 
 @NgModule({
   declarations: [
@@ -18,12 +21,14 @@ import { HomePage } from '../pages/home/home';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    HomePage
+    HomePage,
+    ResultPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     SwipeCardsModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -31,12 +36,14 @@ import { HomePage } from '../pages/home/home';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    HomePage
+    HomePage,
+    ResultPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CardListProvider,
   ]
 })
 export class AppModule {}
