@@ -14,6 +14,7 @@ import { HomePage } from '../pages/home/home';
 import { CardListProvider } from '../providers/card-list/card-list';
 import {HttpModule} from '@angular/http';
 import { ResultPage } from '../pages/result/result';
+import 'hammerjs';
 
 @NgModule({
   declarations: [

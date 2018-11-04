@@ -5,6 +5,7 @@ import { CardList, Card } from '../../model/app-models';
 import { CardListProvider } from '../../providers/card-list/card-list';
 import _ from 'lodash'
 import { ResultPage } from '../result/result';
+import 'hammerjs';
 
 /**
  * Generated class for the HomePage page.
