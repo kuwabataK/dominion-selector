@@ -1,5 +1,5 @@
 import { Component, EventEmitter } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { DomSanitizer } from '../../../node_modules/@angular/platform-browser';
 import { CardList, Card } from '../../model/app-models';
 import { CardListProvider } from '../../providers/card-list/card-list';
@@ -47,19 +47,27 @@ export class HomePage {
     public navParams: NavParams,
     private sanitizer: DomSanitizer,
     private card_provider: CardListProvider,
+    private loadingCtrl:LoadingController,
 
   ) {
 
   }
 
-  async ionViewDidLoad() {
+  async ionViewDidEnter() {
+
+    const loading = this.loadingCtrl.create({content: "Loading..."})
+    await loading.present()
 
     const all_c = await this.card_provider.getAll()
     this.card_list = all_c[0].cards // とりあえず基本だけ読み込む
+    this.attendants = []
+    this.yes_card_list = []
+    this.no_card_list = []
 
     this.readyCardList()
 
     this.ready = true;
+    loading.dismissAll()
   }
 
   readyCardList() {
