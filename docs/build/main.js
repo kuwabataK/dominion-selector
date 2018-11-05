@@ -512,34 +512,38 @@ var SettingPage = /** @class */ (function () {
         this.num_of_people = 4;
         this.series = [];
     }
-    SettingPage.prototype.ionViewDidEnter = function () {
+    SettingPage.prototype.ionViewWillEnter = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, s, all_cards, series_names;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
+            var _a, _b, all_cards, series_names;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
                     case 0:
                         _a = this;
                         return [4 /*yield*/, this.storage.getNumOfPeople()];
                     case 1:
-                        _a.num_of_people = _b.sent();
-                        return [4 /*yield*/, this.storage.getSeries()];
+                        _a.num_of_people = _d.sent();
+                        _b = this;
+                        return [4 /*yield*/, this.storage.getSeries()
+                            // cardsに追加のシリーズがあったときのための処理
+                        ];
                     case 2:
-                        s = _b.sent();
-                        if (!(s.length === 0)) return [3 /*break*/, 4];
+                        _b.series = _d.sent();
                         return [4 /*yield*/, this.card_provider.getAll()];
                     case 3:
-                        all_cards = _b.sent();
+                        all_cards = _d.sent();
                         series_names = __WEBPACK_IMPORTED_MODULE_2_lodash___default.a.uniqBy(all_cards, 'series').map(function (_c) { return _c.series; });
+                        if (!(series_names.length !== this.series.length)) return [3 /*break*/, 5];
                         this.series = series_names.map(function (_s) {
                             return {
                                 "name": _s,
                                 "enable": true
                             };
                         });
-                        _b.label = 4;
+                        return [4 /*yield*/, this.storage.setSeries(this.series)];
                     case 4:
-                        this.series = (s.length === 0 ? this.series : s);
-                        return [2 /*return*/];
+                        _d.sent();
+                        _d.label = 5;
+                    case 5: return [2 /*return*/];
                 }
             });
         });

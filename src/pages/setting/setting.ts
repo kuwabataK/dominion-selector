@@ -30,20 +30,23 @@ export class SettingPage {
   ) {
   }
 
-  async ionViewDidEnter() {
+  async ionViewWillEnter() {
     this.num_of_people = await this.storage.getNumOfPeople()
-    const s = await this.storage.getSeries()
-    if (s.length === 0) {
-      const all_cards = await this.card_provider.getAll()
-      const series_names = _.uniqBy(all_cards, 'series').map((_c) => { return _c.series })
+    this.series = await this.storage.getSeries()
+
+    // cardsに追加のシリーズがあったときのための処理
+    const all_cards = await this.card_provider.getAll()
+    const series_names = _.uniqBy(all_cards, 'series').map((_c) => { return _c.series })
+    if (series_names.length !== this.series.length) {
       this.series = series_names.map((_s) => {
         return {
           "name": _s,
           "enable": true
         }
       })
+      await this.storage.setSeries(this.series)
     }
-    this.series = (s.length === 0 ? this.series : s)
+
   }
 
   async selectNumOfPeople() {
