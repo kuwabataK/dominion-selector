@@ -1,113 +1,264 @@
 {
-    "card-list": [
+    "cards": [
         {
-            "series": "基本",
-            "cards": [
-                {
-                    "name": "職人",
-                    "cost": 6
-                },
-                {
-                    "name": "山賊",
-                    "cost": 5
-                },
-                {
-                    "name": "役人",
-                    "cost": 4
-                },
-                {
-                    "name": "地下貯蔵庫",
-                    "cost": 2
-                },
-                {
-                    "name": "礼拝堂",
-                    "cost": 2
-                },
-                {
-                    "name": "議事堂",
-                    "cost": 5
-                },
-                {
-                    "name": "祝祭",
-                    "cost": 5
-                },
-                {
-                    "name": "庭園",
-                    "cost": 4
-                },
-                {
-                    "name": "前駆者",
-                    "cost": 3
-                },
-                {
-                    "name": "研究所",
-                    "cost": 5
-                },
-                {
-                    "name": "書庫",
-                    "cost": 5
-                },
-                {
-                    "name": "市場",
-                    "cost": 5
-                },
-                {
-                    "name": "商人",
-                    "cost": 3
-                },
-                {
-                    "name": "民兵",
-                    "cost": 4
-                },
-                {
-                    "name": "鉱山",
-                    "cost": 5
-                },
-                {
-                    "name": "堀",
-                    "cost": 2
-                },
-                {
-                    "name": "金貸し",
-                    "cost": 4
-                },
-                {
-                    "name": "密猟者",
-                    "cost": 4
-                },
-                {
-                    "name": "改築",
-                    "cost": 4
-                },
-                {
-                    "name": "衛兵",
-                    "cost": 5
-                },
-                {
-                    "name": "鍛冶屋",
-                    "cost": 4
-                },
-                {
-                    "name": "玉座の間",
-                    "cost": 4
-                },
-                {
-                    "name": "家臣",
-                    "cost": 3
-                },
-                {
-                    "name": "村",
-                    "cost": 3
-                },
-                {
-                    "name": "魔女",
-                    "cost": 5
-                },
-                {
-                    "name": "工房",
-                    "cost": 3
-                }
-            ]
+            "name": "職人",
+            "cost": 6,
+            "series": "基本"
+        },
+        {
+            "name": "山賊",
+            "cost": 5,
+            "series": "基本"
+        },
+        {
+            "name": "役人",
+            "cost": 4,
+            "series": "基本"
+        },
+        {
+            "name": "地下貯蔵庫",
+            "cost": 2,
+            "series": "基本"
+        },
+        {
+            "name": "礼拝堂",
+            "cost": 2,
+            "series": "基本"
+        },
+        {
+            "name": "議事堂",
+            "cost": 5,
+            "series": "基本"
+        },
+        {
+            "name": "祝祭",
+            "cost": 5,
+            "series": "基本"
+        },
+        {
+            "name": "庭園",
+            "cost": 4,
+            "series": "基本"
+        },
+        {
+            "name": "前駆者",
+            "cost": 3,
+            "series": "基本"
+        },
+        {
+            "name": "研究所",
+            "cost": 5,
+            "series": "基本"
+        },
+        {
+            "name": "書庫",
+            "cost": 5,
+            "series": "基本"
+        },
+        {
+            "name": "市場",
+            "cost": 5,
+            "series": "基本"
+        },
+        {
+            "name": "商人",
+            "cost": 3,
+            "series": "基本"
+        },
+        {
+            "name": "民兵",
+            "cost": 4,
+            "series": "基本"
+        },
+        {
+            "name": "鉱山",
+            "cost": 5,
+            "series": "基本"
+        },
+        {
+            "name": "堀",
+            "cost": 2,
+            "series": "基本"
+        },
+        {
+            "name": "金貸し",
+            "cost": 4,
+            "series": "基本"
+        },
+        {
+            "name": "密猟者",
+            "cost": 4,
+            "series": "基本"
+        },
+        {
+            "name": "改築",
+            "cost": 4,
+            "series": "基本"
+        },
+        {
+            "name": "衛兵",
+            "cost": 5,
+            "series": "基本"
+        },
+        {
+            "name": "鍛冶屋",
+            "cost": 4,
+            "series": "基本"
+        },
+        {
+            "name": "玉座の間",
+            "cost": 4,
+            "series": "基本"
+        },
+        {
+            "name": "家臣",
+            "cost": 3,
+            "series": "基本"
+        },
+        {
+            "name": "村",
+            "cost": 3,
+            "series": "基本"
+        },
+        {
+            "name": "魔女",
+            "cost": 5,
+            "series": "基本"
+        },
+        {
+            "name": "工房",
+            "cost": 3,
+            "series": "基本"
+        },
+        {
+            "name": "中庭",
+            "cost": 2,
+            "series": "陰謀"
+        },
+        {
+            "name": "共謀者",
+            "cost": 4,
+            "series": "陰謀"
+        },
+        {
+            "name": "廷臣",
+            "cost": 5,
+            "series": "陰謀"
+        },
+        {
+            "name": "男爵",
+            "cost": 4,
+            "series": "陰謀"
+        },
+        {
+            "name": "橋",
+            "cost": 4,
+            "series": "陰謀"
+        },
+        {
+            "name": "外交官",
+            "cost": 4,
+            "series": "陰謀"
+        },
+        {
+            "name": "公爵",
+            "cost": 5,
+            "series": "陰謀"
+        },
+        {
+            "name": "ハーレム",
+            "cost": 6,
+            "series": "陰謀"
+        },
+        {
+            "name": "貴族",
+            "cost": 6,
+            "series": "陰謀"
+        },
+        {
+            "name": "鉄工所",
+            "cost": 4,
+            "series": "陰謀"
+        },
+        {
+            "name": "待ち伏せ",
+            "cost": 2,
+            "series": "陰謀"
+        },
+        {
+            "name": "仮面舞踏会",
+            "cost": 3,
+            "series": "陰謀"
+        },
+        {
+            "name": "風車",
+            "cost": 4,
+            "series": "陰謀"
+        },
+        {
+            "name": "鉱山の村",
+            "cost": 4,
+            "series": "陰謀"
+        },
+        {
+            "name": "寵臣",
+            "cost": 5,
+            "series": "陰謀"
+        },
+        {
+            "name": "パトロール",
+            "cost": 5,
+            "series": "陰謀"
+        },
+        {
+            "name": "手先",
+            "cost": 2,
+            "series": "陰謀"
+        },
+        {
+            "name": "身代わり",
+            "cost": 5,
+            "series": "陰謀"
+        },
+        {
+            "name": "抜け穴",
+            "cost": 4,
+            "series": "陰謀"
+        },
+        {
+            "name": "貧民街",
+            "cost": 3,
+            "series": "陰謀"
+        },
+        {
+            "name": "執事",
+            "cost": 3,
+            "series": "陰謀"
+        },
+        {
+            "name": "詐欺師",
+            "cost": 3,
+            "series": "陰謀"
+        },
+        {
+            "name": "拷問人",
+            "cost": 5,
+            "series": "陰謀"
+        },
+        {
+            "name": "交易場",
+            "cost": 5,
+            "series": "陰謀"
+        },
+        {
+            "name": "改良",
+            "cost": 5,
+            "series": "陰謀"
+        },
+        {
+            "name": "願いの井戸",
+            "cost": 3,
+            "series": "陰謀"
         }
     ]
 }

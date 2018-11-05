@@ -1,11 +1,10 @@
 import { Component, EventEmitter } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
-import { DomSanitizer } from '../../../node_modules/@angular/platform-browser';
-import { CardList, Card } from '../../model/app-models';
 import { CardListProvider } from '../../providers/card-list/card-list';
 import _ from 'lodash'
 import { ResultPage } from '../result/result';
 import 'hammerjs';
+import { Card } from '../../model/app-models';
 
 /**
  * Generated class for the HomePage page.
@@ -57,20 +56,20 @@ export class HomePage {
     const loading = this.loadingCtrl.create({content: "Loading..."})
     await loading.present()
 
-    const all_c = await this.card_provider.getAll()
+    const all_c = await this.card_provider.getCards()
 
     // 配列の値をランダムに入れ替える
-    for (var i = all_c[0].cards.length - 1; i >= 0; i--){
+    for (var i = all_c.length - 1; i >= 0; i--){
 
       // 0~iのランダムな数値を取得
       var rand = Math.floor( Math.random() * ( i + 1 ) );
     
       // 配列の数値を入れ替える
-      [all_c[0].cards[i], all_c[0].cards[rand]] = [all_c[0].cards[rand], all_c[0].cards[i]]
+      [all_c[i], all_c[rand]] = [all_c[rand], all_c[i]]
     
     }
 
-    this.card_list = all_c[0].cards // とりあえず基本だけ読み込む
+    this.card_list = all_c // とりあえず全部読み込む
     this.attendants = []
     this.yes_card_list = []
     this.no_card_list = []
@@ -88,7 +87,7 @@ export class HomePage {
         id: i + 1,
         likeEvent: new EventEmitter(),
         destroyEvent: new EventEmitter(),
-        image: 'assets/imgs/' + _card.name + '.png'
+        image: 'assets/imgs/' + _card.series + '/' + _card.name + '.png'
       });
     })
 

@@ -56,20 +56,20 @@ export class TinderRemoveCardModePage {
 
     this.player_num = await this.storage.getNumOfPeople()
 
-    const all_c = await this.card_provider.getAll()
+    const all_c = await this.card_provider.getCards()
 
     // 配列の値をランダムに入れ替える
-    for (var i = all_c[0].cards.length - 1; i >= 0; i--){
+    for (var i = all_c.length - 1; i >= 0; i--){
 
       // 0~iのランダムな数値を取得
       var rand = Math.floor( Math.random() * ( i + 1 ) );
     
       // 配列の数値を入れ替える
-      [all_c[0].cards[i], all_c[0].cards[rand]] = [all_c[0].cards[rand], all_c[0].cards[i]]
+      [all_c[i], all_c[rand]] = [all_c[rand], all_c[i]]
     
     }
 
-    this.card_list = all_c[0].cards.slice(0,10 + this.player_num) // とりあえず基本だけ人数+10枚読み込む
+    this.card_list = all_c.slice(0,10 + this.player_num) // とりあえず基本だけ人数+10枚読み込む
     this.attendants = []
     this.yes_card_list = []
     this.no_card_list = []
@@ -87,7 +87,7 @@ export class TinderRemoveCardModePage {
         id: i + 1,
         likeEvent: new EventEmitter(),
         destroyEvent: new EventEmitter(),
-        image: 'assets/imgs/' + _card.name + '.png'
+        image: 'assets/imgs/' + _card.series + '/' + _card.name + '.png'
       });
     })
 

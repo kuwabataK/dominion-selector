@@ -5,13 +5,13 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>Setting</ion-title>
-    </ion-navbar>
-  </ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Setting</ion-title>
+  </ion-navbar>
+</ion-header>
 
 
 <ion-content class="outer-content">
@@ -21,7 +21,7 @@
 
     <ion-item>
       <ion-label>プレイ人数</ion-label>
-      <ion-select [(ngModel)]="num_of_people" (ionChange)="selectNumOfPeople()" >
+      <ion-select [(ngModel)]="num_of_people" (ionChange)="selectNumOfPeople()">
         <ion-option [value]="2">2</ion-option>
         <ion-option [value]="3">3</ion-option>
         <ion-option [value]="4">4</ion-option>
@@ -31,5 +31,15 @@
         <ion-option [value]="8">8</ion-option>
       </ion-select>
     </ion-item>
-    </ion-list>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>シリーズ</ion-list-header>
+
+    <ion-item *ngFor="let s of series">
+      <ion-label>{{s.name}}</ion-label>
+      <ion-toggle [(ngModel)]="s.enable" (ionChange)="setSeries()" ></ion-toggle>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
