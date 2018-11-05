@@ -15,6 +15,10 @@ import { CardListProvider } from '../providers/card-list/card-list';
 import {HttpModule} from '@angular/http';
 import { ResultPage } from '../pages/result/result';
 import 'hammerjs';
+import { SettingPage } from '../pages/setting/setting';
+import { TinderRemoveCardModePage } from '../pages/tinder-remove-card-mode/tinder-remove-card-mode';
+import { IonicStorageModule } from '@ionic/storage';
+import { StorageProvider } from '../providers/storage/storage';
 
 @NgModule({
   declarations: [
@@ -23,11 +27,14 @@ import 'hammerjs';
     ItemDetailsPage,
     ListPage,
     HomePage,
-    ResultPage
+    ResultPage,
+    SettingPage,
+    TinderRemoveCardModePage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     SwipeCardsModule,
     HttpModule
   ],
@@ -38,13 +45,16 @@ import 'hammerjs';
     ItemDetailsPage,
     ListPage,
     HomePage,
-    ResultPage
+    ResultPage,
+    SettingPage,
+    TinderRemoveCardModePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CardListProvider,
+    StorageProvider,
   ]
 })
 export class AppModule {}

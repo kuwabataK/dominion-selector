@@ -1,25 +1,25 @@
 import { Component, EventEmitter } from '@angular/core';
-import { NavController, NavParams, LoadingController } from 'ionic-angular';
-import { DomSanitizer } from '../../../node_modules/@angular/platform-browser';
-import { CardList, Card } from '../../model/app-models';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Card } from '../../model/app-models';
 import { CardListProvider } from '../../providers/card-list/card-list';
-import _ from 'lodash'
 import { ResultPage } from '../result/result';
-import 'hammerjs';
+import _ from 'lodash'
+import { StorageProvider } from '../../providers/storage/storage';
 
 /**
- * Generated class for the HomePage page.
+ * Generated class for the TinderRemoveCardModePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
+  selector: 'page-tinder-remove-card-mode',
+  templateUrl: 'tinder-remove-card-mode.html',
 })
-export class HomePage {
+export class TinderRemoveCardModePage {
 
+  player_num = 4
 
   card_list: Card[] = []
 
@@ -40,22 +40,21 @@ export class HomePage {
     }
   }
 
-
-
-  constructor(
-    public navCtrl: NavController,
+  constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private card_provider: CardListProvider,
-    private loadingCtrl:LoadingController,
-
-  ) {
-
+    private loadingCtrl: LoadingController,
+    private storage:StorageProvider,
+    ) {
   }
+
 
   async ionViewDidEnter() {
 
     const loading = this.loadingCtrl.create({content: "Loading..."})
     await loading.present()
+
+    this.player_num = await this.storage.getNumOfPeople()
 
     const all_c = await this.card_provider.getAll()
 
@@ -70,7 +69,7 @@ export class HomePage {
     
     }
 
-    this.card_list = all_c[0].cards // とりあえず基本だけ読み込む
+    this.card_list = all_c[0].cards.slice(0,10 + this.player_num) // とりあえず基本だけ人数+10枚読み込む
     this.attendants = []
     this.yes_card_list = []
     this.no_card_list = []
@@ -94,7 +93,6 @@ export class HomePage {
 
   }
 
-
   onCardInteract(event) {
     console.log(event);
 
@@ -107,21 +105,19 @@ export class HomePage {
 
     this.swipe_cnt++
 
-    if (this.yes_card_list.length >= 10) {
+    if (this.card_list.length - this.no_card_list.length <= 10) {
       console.log("終了！")
-      console.log(this.yes_card_list)
       this.navCtrl.push(ResultPage, {
-        cards: this.yes_card_list
+        cards: _.difference(this.card_list, this.no_card_list)
       })
     }
 
     if (this.yes_card_list.length + this.no_card_list.length >= this.card_list.length) {
       console.log("全部のカードが無くなりました！！")
-      this.card_list = _.cloneDeep(this.no_card_list)
-      this.no_card_list = []
+      this.card_list = _.cloneDeep(this.yes_card_list)
+      this.yes_card_list = []
       this.readyCardList()
     }
 
   }
-
 }

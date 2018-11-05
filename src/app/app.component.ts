@@ -9,6 +9,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import 'hammerjs';
+import { TinderRemoveCardModePage } from '../pages/tinder-remove-card-mode/tinder-remove-card-mode';
+import { SettingPage } from '../pages/setting/setting';
 
 
 @Component({
@@ -31,8 +33,9 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'My First List', component: ListPage },
+      { title: 'TInder Select 10', component: HomePage },
+      { title: 'Tinder Remove To 10', component: TinderRemoveCardModePage },
+      { title: 'Setting', component: SettingPage },
     ];
   }
 
