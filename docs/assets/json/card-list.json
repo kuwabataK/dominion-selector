@@ -259,6 +259,136 @@
             "name": "願いの井戸",
             "cost": 3,
             "series": "陰謀"
+        },
+        {
+            "name": "大使",
+            "cost": 3,
+            "series": "海辺"
+        },
+        {
+            "name": "バザー",
+            "cost": 5,
+            "series": "海辺"
+        },
+        {
+            "name": "隊商",
+            "cost": 4,
+            "series": "海辺"
+        },
+        {
+            "name": "巾着切り",
+            "cost": 4,
+            "series": "海辺"
+        },
+        {
+            "name": "抑留",
+            "cost": 2,
+            "series": "海辺"
+        },
+        {
+            "name": "探検家",
+            "cost": 5,
+            "series": "海辺"
+        },
+        {
+            "name": "漁村",
+            "cost": 3,
+            "series": "海辺"
+        },
+        {
+            "name": "幽霊船",
+            "cost": 5,
+            "series": "海辺"
+        },
+        {
+            "name": "停泊所",
+            "cost": 2,
+            "series": "海辺"
+        },
+        {
+            "name": "島",
+            "cost": 4,
+            "series": "海辺"
+        },
+        {
+            "name": "灯台",
+            "cost": 2,
+            "series": "海辺"
+        },
+        {
+            "name": "見張り",
+            "cost": 3,
+            "series": "海辺"
+        },
+        {
+            "name": "商船",
+            "cost": 5,
+            "series": "海辺"
+        },
+        {
+            "name": "原住民の村",
+            "cost": 2,
+            "series": "海辺"
+        },
+        {
+            "name": "航海士",
+            "cost": 4,
+            "series": "海辺"
+        },
+        {
+            "name": "前哨地",
+            "cost": 5,
+            "series": "海辺"
+        },
+        {
+            "name": "真珠採り",
+            "cost": 2,
+            "series": "海辺"
+        },
+        {
+            "name": "海賊船",
+            "cost": 4,
+            "series": "海辺"
+        },
+        {
+            "name": "引揚水夫",
+            "cost": 4,
+            "series": "海辺"
+        },
+        {
+            "name": "海の妖婆",
+            "cost": 4,
+            "series": "海辺"
+        },
+        {
+            "name": "密輸人",
+            "cost": 3,
+            "series": "海辺"
+        },
+        {
+            "name": "策士",
+            "cost": 5,
+            "series": "海辺"
+        },
+        {
+            "name": "宝の地図",
+            "cost": 4,
+            "series": "海辺"
+        },
+        {
+            "name": "宝物庫",
+            "cost": 5,
+            "series": "海辺"
+        },
+        {
+            "name": "倉庫",
+            "cost": 3,
+            "series": "海辺"
+        },
+        {
+            "name": "船着場",
+            "cost": 5,
+            "series": "海辺"
         }
     ]
 }
