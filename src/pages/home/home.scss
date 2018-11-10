@@ -1,9 +1,22 @@
 page-home {
   sc-card {
     height: 550px !important ;
+    max-width: 360px;
   }
   .dominion-card-img {
     width: 300px;
     height: 500px;
+  }
+  .card-img {
+    text-align: center;
+  }
+  .flexbox{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+    text-align: center;
   }
 }

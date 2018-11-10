@@ -1,5 +1,5 @@
 import { Component, EventEmitter } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { Card } from '../../model/app-models';
 import { CardListProvider } from '../../providers/card-list/card-list';
 import { ResultPage } from '../result/result';
@@ -28,6 +28,9 @@ export class TinderRemoveCardModePage {
 
   swipe_cnt = 0
 
+  user_no_swipe_cnt = 0
+  user_yes_swipe_cnt = 0
+
   ready = false;
   attendants = [];
   cardDirection = "xy";
@@ -45,6 +48,7 @@ export class TinderRemoveCardModePage {
     private card_provider: CardListProvider,
     private loadingCtrl: LoadingController,
     private storage:StorageProvider,
+    private alertCtrl:AlertController,
     ) {
   }
 
@@ -75,6 +79,8 @@ export class TinderRemoveCardModePage {
     this.no_card_list = []
 
     this.readyCardList()
+    this.user_no_swipe_cnt = 0
+    this.user_yes_swipe_cnt = 0
 
     this.ready = true;
     loading.dismissAll()
@@ -94,13 +100,14 @@ export class TinderRemoveCardModePage {
   }
 
   onCardInteract(event) {
-    console.log(event);
 
     if (event.like) {
       this.yes_card_list.push(this.card_list[this.swipe_cnt])
+      this.user_yes_swipe_cnt++
     }
     if (!event.like) {
       this.no_card_list.push(this.card_list[this.swipe_cnt])
+      this.user_no_swipe_cnt++
     }
 
     this.swipe_cnt++
@@ -110,6 +117,7 @@ export class TinderRemoveCardModePage {
       this.navCtrl.push(ResultPage, {
         cards: _.difference(this.card_list, this.no_card_list)
       })
+      return
     }
 
     if (this.yes_card_list.length + this.no_card_list.length >= this.card_list.length) {
@@ -119,5 +127,26 @@ export class TinderRemoveCardModePage {
       this.readyCardList()
     }
 
+    if (this.user_yes_swipe_cnt >= 3 || this.user_no_swipe_cnt >= 1 ){
+      this.alertMessage("次の人に回してください")
+    }
+
+  }
+
+  async alertMessage(msg :string){
+    let alert = this.alertCtrl.create({
+      title: '確認',
+      message: msg,
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            this.user_no_swipe_cnt = 0
+            this.user_yes_swipe_cnt = 0
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 }
