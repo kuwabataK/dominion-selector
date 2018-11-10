@@ -15,6 +15,8 @@ import { Card } from '../../model/app-models';
 })
 export class ResultPage {
 
+  view_mode: "cards" | "list" = "cards"
+
   cards: Card[] = []
 
   constructor(
