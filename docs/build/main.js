@@ -159,6 +159,7 @@ var HomePage = /** @class */ (function () {
         this.card_provider = card_provider;
         this.loadingCtrl = loadingCtrl;
         this.card_list = [];
+        this.remove_cnt = 0; // 山札がなくなるまでループしたあとにカードリストを再構成する時に取り除いたカードの枚数の合計値
         this.yes_card_list = [];
         this.no_card_list = [];
         this.swipe_cnt = 0;
@@ -199,6 +200,7 @@ var HomePage = /** @class */ (function () {
                         this.attendants = [];
                         this.yes_card_list = [];
                         this.no_card_list = [];
+                        this.remove_cnt = 0;
                         this.readyCardList();
                         this.ready = true;
                         loading.dismissAll();
@@ -235,8 +237,9 @@ var HomePage = /** @class */ (function () {
                 cards: this.yes_card_list
             });
         }
-        if (this.yes_card_list.length + this.no_card_list.length >= this.card_list.length) {
+        if (this.yes_card_list.length + this.no_card_list.length >= this.card_list.length + this.remove_cnt) {
             console.log("全部のカードが無くなりました！！");
+            this.remove_cnt = this.yes_card_list.length;
             this.card_list = __WEBPACK_IMPORTED_MODULE_3_lodash___default.a.cloneDeep(this.no_card_list);
             this.no_card_list = [];
             this.readyCardList();
@@ -336,6 +339,7 @@ var TinderRemoveCardModePage = /** @class */ (function () {
         this.alertCtrl = alertCtrl;
         this.player_num = 4;
         this.card_list = [];
+        this.remove_cnt = 0;
         this.yes_card_list = [];
         this.no_card_list = [];
         this.swipe_cnt = 0;
@@ -382,6 +386,7 @@ var TinderRemoveCardModePage = /** @class */ (function () {
                         this.attendants = [];
                         this.yes_card_list = [];
                         this.no_card_list = [];
+                        this.remove_cnt = 0;
                         this.readyCardList();
                         this.user_no_swipe_cnt = 0;
                         this.user_yes_swipe_cnt = 0;
@@ -414,15 +419,16 @@ var TinderRemoveCardModePage = /** @class */ (function () {
             this.user_no_swipe_cnt++;
         }
         this.swipe_cnt++;
-        if (this.card_list.length - this.no_card_list.length <= 10) {
+        if (this.card_list.length + this.remove_cnt - this.no_card_list.length <= 10) {
             console.log("終了！");
             this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__result_result__["a" /* ResultPage */], {
                 cards: __WEBPACK_IMPORTED_MODULE_4_lodash___default.a.difference(this.card_list, this.no_card_list)
             });
             return;
         }
-        if (this.yes_card_list.length + this.no_card_list.length >= this.card_list.length) {
+        if (this.yes_card_list.length + this.no_card_list.length >= this.card_list.length + this.remove_cnt) {
             console.log("全部のカードが無くなりました！！");
+            this.remove_cnt = this.no_card_list.length;
             this.card_list = __WEBPACK_IMPORTED_MODULE_4_lodash___default.a.cloneDeep(this.yes_card_list);
             this.yes_card_list = [];
             this.readyCardList();

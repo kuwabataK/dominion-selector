@@ -21,6 +21,7 @@ export class HomePage {
 
 
   card_list: Card[] = []
+  remove_cnt = 0 // 山札がなくなるまでループしたあとにカードリストを再構成する時に取り除いたカードの枚数の合計値
 
   yes_card_list: Card[] = []
   no_card_list: Card[] = []
@@ -73,6 +74,8 @@ export class HomePage {
     this.attendants = []
     this.yes_card_list = []
     this.no_card_list = []
+    this.remove_cnt = 0
+    
 
     this.readyCardList()
 
@@ -114,8 +117,9 @@ export class HomePage {
       })
     }
 
-    if (this.yes_card_list.length + this.no_card_list.length >= this.card_list.length) {
+    if (this.yes_card_list.length + this.no_card_list.length  >= this.card_list.length + this.remove_cnt) {
       console.log("全部のカードが無くなりました！！")
+      this.remove_cnt = this.yes_card_list.length
       this.card_list = _.cloneDeep(this.no_card_list)
       this.no_card_list = []
       this.readyCardList()

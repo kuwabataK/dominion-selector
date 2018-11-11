@@ -22,6 +22,7 @@ export class TinderRemoveCardModePage {
   player_num = 4
 
   card_list: Card[] = []
+  remove_cnt = 0
 
   yes_card_list: Card[] = []
   no_card_list: Card[] = []
@@ -77,6 +78,7 @@ export class TinderRemoveCardModePage {
     this.attendants = []
     this.yes_card_list = []
     this.no_card_list = []
+    this.remove_cnt = 0
 
     this.readyCardList()
     this.user_no_swipe_cnt = 0
@@ -112,7 +114,7 @@ export class TinderRemoveCardModePage {
 
     this.swipe_cnt++
 
-    if (this.card_list.length - this.no_card_list.length <= 10) {
+    if (this.card_list.length + this.remove_cnt - this.no_card_list.length <= 10) {
       console.log("終了！")
       this.navCtrl.push(ResultPage, {
         cards: _.difference(this.card_list, this.no_card_list)
@@ -120,8 +122,9 @@ export class TinderRemoveCardModePage {
       return
     }
 
-    if (this.yes_card_list.length + this.no_card_list.length >= this.card_list.length) {
+    if (this.yes_card_list.length + this.no_card_list.length >= this.card_list.length +  this.remove_cnt) {
       console.log("全部のカードが無くなりました！！")
+      this.remove_cnt = this.no_card_list.length
       this.card_list = _.cloneDeep(this.yes_card_list)
       this.yes_card_list = []
       this.readyCardList()
