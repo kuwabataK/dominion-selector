@@ -449,6 +449,131 @@
             "name": "ブドウ園",
             "cost": 0,
             "series": "錬金術"
+        },
+        {
+            "name": "銀行",
+            "cost": 7,
+            "series": "繁栄"
+        },
+        {
+            "name": "司教",
+            "cost": 4,
+            "series": "繁栄"
+        },
+        {
+            "name": "禁制品",
+            "cost": 5,
+            "series": "繁栄"
+        },
+        {
+            "name": "会計所",
+            "cost": 5,
+            "series": "繁栄"
+        },
+        {
+            "name": "都市",
+            "cost": 5,
+            "series": "繁栄"
+        },
+        {
+            "name": "拡張",
+            "cost": 7,
+            "series": "繁栄"
+        },
+        {
+            "name": "鍛造",
+            "cost": 7,
+            "series": "繁栄"
+        },
+        {
+            "name": "大市場",
+            "cost": 6,
+            "series": "繁栄"
+        },
+        {
+            "name": "ならず者",
+            "cost": 6,
+            "series": "繁栄"
+        },
+        {
+            "name": "隠し財産",
+            "cost": 6,
+            "series": "繁栄"
+        },
+        {
+            "name": "宮廷",
+            "cost": 7,
+            "series": "繁栄"
+        },
+        {
+            "name": "借金",
+            "cost": 3,
+            "series": "繁栄"
+        },
+        {
+            "name": "造幣所",
+            "cost": 5,
+            "series": "繁栄"
+        },
+        {
+            "name": "記念碑",
+            "cost": 4,
+            "series": "繁栄"
+        },
+        {
+            "name": "香具師",
+            "cost": 5,
+            "series": "繁栄"
+        },
+        {
+            "name": "行商人",
+            "cost": 8,
+            "series": "繁栄"
+        },
+        {
+            "name": "石切場",
+            "cost": 4,
+            "series": "繁栄"
+        },
+        {
+            "name": "大衆",
+            "cost": 5,
+            "series": "繁栄"
+        },
+        {
+            "name": "玉璽",
+            "cost": 5,
+            "series": "繁栄"
+        },
+        {
+            "name": "護符",
+            "cost": 4,
+            "series": "繁栄"
+        },
+        {
+            "name": "交易路",
+            "cost": 3,
+            "series": "繁栄"
+        },
+        {
+            "name": "保管庫",
+            "cost": 5,
+            "series": "繁栄"
+        },
+        {
+            "name": "投機",
+            "cost": 5,
+            "series": "繁栄"
+        },
+        {
+            "name": "望楼",
+            "cost": 3,
+            "series": "繁栄"
+        },
+        {
+            "name": "労働者の村",
+            "cost": 4,
+            "series": "繁栄"
         }
     ]
 }
