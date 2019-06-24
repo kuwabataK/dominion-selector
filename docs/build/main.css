@@ -25712,8 +25712,12 @@ page-result .low-num {
   background-color: #0cd1e8;
 }
 
-page-result .middle-num {
+page-result .low-middle-num {
   background-color: #10dc60;
+}
+
+page-result .middle-num {
+  background-color: #4286f4;
 }
 
 page-result .high-num {
