@@ -37,7 +37,7 @@ var ResultPage = /** @class */ (function () {
     };
     ResultPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-result',template:/*ion-inline-start:"C:\Users\souma\Documents\GitHub\dominion-selector\src\pages\result\result.html"*/'<!--\n  Generated template for the ResultPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>result</ion-title>\n  </ion-navbar>\n\n  <ion-toolbar no-border-top>\n    <ion-segment [(ngModel)]="view_mode">\n      <ion-segment-button value="cards">\n          <ion-icon name="ios-images"></ion-icon>\n      </ion-segment-button>\n      <ion-segment-button value="list">\n        <ion-icon name="ios-list"></ion-icon>\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n\n  <ng-container *ngIf="view_mode === \'cards\'">\n    <div class="flexbox">\n\n      <ion-grid>\n\n        <ion-row>\n          <ng-container *ngFor="let card of cards">\n            <ion-col col-6>\n              <img class="dominion-card-img" [src]="\'assets/imgs/\' + card.series + \'/\' + card.name + \'.png\'">\n            </ion-col>\n          </ng-container>\n\n        </ion-row>\n\n      </ion-grid>\n\n\n    </div>\n  </ng-container>\n\n  <ng-container *ngIf="view_mode === \'list\'">\n    <ion-list>\n      <ion-item *ngFor="let card of cards">\n        <ion-label>{{card.name}} </ion-label>\n        <ion-badge item-end>{{card.cost}}</ion-badge>\n      </ion-item>\n    </ion-list>\n\n  </ng-container>\n\n</ion-content>'/*ion-inline-end:"C:\Users\souma\Documents\GitHub\dominion-selector\src\pages\result\result.html"*/,
+            selector: 'page-result',template:/*ion-inline-start:"/Users/kuwaharasouba/Documents/GitHub/dominion-selector/src/pages/result/result.html"*/'<!--\n  Generated template for the ResultPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>result</ion-title>\n  </ion-navbar>\n\n  <ion-toolbar no-border-top>\n    <ion-segment [(ngModel)]="view_mode">\n      <ion-segment-button value="cards">\n          <ion-icon name="ios-images"></ion-icon>\n      </ion-segment-button>\n      <ion-segment-button value="list">\n        <ion-icon name="ios-list"></ion-icon>\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n\n  <ng-container *ngIf="view_mode === \'cards\'">\n    <div class="flexbox">\n\n      <ion-grid>\n\n        <ion-row>\n          <ng-container *ngFor="let card of cards">\n            <ion-col col-6>\n              <img class="dominion-card-img" [src]="\'assets/imgs/\' + card.series + \'/\' + card.name + \'.png\'">\n            </ion-col>\n          </ng-container>\n\n        </ion-row>\n\n      </ion-grid>\n\n\n    </div>\n  </ng-container>\n\n  <ng-container *ngIf="view_mode === \'list\'">\n    <ion-list>\n      <ion-item *ngFor="let card of cards">\n        <ion-label>{{card.name}} </ion-label>\n        <ion-badge item-end>{{card.cost}}</ion-badge>\n      </ion-item>\n    </ion-list>\n\n  </ng-container>\n\n</ion-content>'/*ion-inline-end:"/Users/kuwaharasouba/Documents/GitHub/dominion-selector/src/pages/result/result.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
@@ -177,25 +177,17 @@ var HomePage = /** @class */ (function () {
     }
     HomePage.prototype.ionViewDidEnter = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var loading, all_c, i, rand, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
+            var loading, all_c;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
                     case 0:
                         loading = this.loadingCtrl.create({ content: "Loading..." });
                         return [4 /*yield*/, loading.present()];
                     case 1:
-                        _b.sent();
-                        return [4 /*yield*/, this.card_provider.getCards()
-                            // 配列の値をランダムに入れ替える
-                        ];
+                        _a.sent();
+                        return [4 /*yield*/, this.card_provider.getRamdomCards()];
                     case 2:
-                        all_c = _b.sent();
-                        // 配列の値をランダムに入れ替える
-                        for (i = all_c.length - 1; i >= 0; i--) {
-                            rand = Math.floor(Math.random() * (i + 1));
-                            // 配列の数値を入れ替える
-                            _a = [all_c[rand], all_c[i]], all_c[i] = _a[0], all_c[rand] = _a[1];
-                        }
+                        all_c = _a.sent();
                         this.card_list = all_c; // とりあえず全部読み込む
                         this.attendants = [];
                         this.yes_card_list = [];
@@ -247,7 +239,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\souma\Documents\GitHub\dominion-selector\src\pages\home\home.html"*/'<!--\n\n  Generated template for the HomePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n    <ion-navbar>\n\n      <button ion-button menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      <ion-title>Tinder Select 10</ion-title>\n\n    </ion-navbar>\n\n  </ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <div class="flexbox" *ngIf="ready">\n\n    <sc-card padding *ngFor="let attendant of attendants" [orientation]="cardDirection" [tinder-card]="cardOverlay" [callDestroy]="attendant.destroyEvent"\n\n      [callLike]="attendant.likeEvent" (onLike)="onCardInteract($event)">\n\n      <div class="card-img">\n\n          <img class="dominion-card-img" [src]="attendant.image">\n\n      </div>\n\n    </sc-card>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\souma\Documents\GitHub\dominion-selector\src\pages\home\home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"/Users/kuwaharasouba/Documents/GitHub/dominion-selector/src/pages/home/home.html"*/'<!--\n  Generated template for the HomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n      <ion-title>Tinder Select 10</ion-title>\n    </ion-navbar>\n  </ion-header>\n\n\n<ion-content padding>\n  <div class="flexbox" *ngIf="ready">\n    <sc-card padding *ngFor="let attendant of attendants" [orientation]="cardDirection" [tinder-card]="cardOverlay" [callDestroy]="attendant.destroyEvent"\n      [callLike]="attendant.likeEvent" (onLike)="onCardInteract($event)">\n      <div class="card-img">\n          <img class="dominion-card-img" [src]="attendant.image">\n      </div>\n    </sc-card>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/kuwaharasouba/Documents/GitHub/dominion-selector/src/pages/home/home.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -359,29 +351,21 @@ var TinderRemoveCardModePage = /** @class */ (function () {
     }
     TinderRemoveCardModePage.prototype.ionViewDidEnter = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var loading, _a, all_c, i, rand, _b;
-            return __generator(this, function (_c) {
-                switch (_c.label) {
+            var loading, _a, all_c;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
                         loading = this.loadingCtrl.create({ content: "Loading..." });
                         return [4 /*yield*/, loading.present()];
                     case 1:
-                        _c.sent();
+                        _b.sent();
                         _a = this;
                         return [4 /*yield*/, this.storage.getNumOfPeople()];
                     case 2:
-                        _a.player_num = _c.sent();
-                        return [4 /*yield*/, this.card_provider.getCards()
-                            // 配列の値をランダムに入れ替える
-                        ];
+                        _a.player_num = _b.sent();
+                        return [4 /*yield*/, this.card_provider.getRamdomCards()];
                     case 3:
-                        all_c = _c.sent();
-                        // 配列の値をランダムに入れ替える
-                        for (i = all_c.length - 1; i >= 0; i--) {
-                            rand = Math.floor(Math.random() * (i + 1));
-                            // 配列の数値を入れ替える
-                            _b = [all_c[rand], all_c[i]], all_c[i] = _b[0], all_c[rand] = _b[1];
-                        }
+                        all_c = _b.sent();
                         this.card_list = all_c.slice(0, 10 + this.player_num); // とりあえず基本だけ人数+10枚読み込む
                         this.attendants = [];
                         this.yes_card_list = [];
@@ -410,10 +394,12 @@ var TinderRemoveCardModePage = /** @class */ (function () {
         });
     };
     TinderRemoveCardModePage.prototype.onCardInteract = function (event) {
+        // yesが選ばれたときの処理
         if (event.like) {
             this.yes_card_list.push(this.card_list[this.swipe_cnt]);
             this.user_yes_swipe_cnt++;
         }
+        // noが選ばれたときの処理
         if (!event.like) {
             this.no_card_list.push(this.card_list[this.swipe_cnt]);
             this.user_no_swipe_cnt++;
@@ -435,11 +421,17 @@ var TinderRemoveCardModePage = /** @class */ (function () {
         }
         if (this.user_yes_swipe_cnt >= 3 || this.user_no_swipe_cnt >= 1) {
             this.alertMessage("次の人に回してください");
+            this.user_no_swipe_cnt = 0;
+            this.user_yes_swipe_cnt = 0;
         }
     };
+    /**
+     * 確認ダイアログを表示します
+     *
+     * @param msg 表示するメッセージ
+     */
     TinderRemoveCardModePage.prototype.alertMessage = function (msg) {
         return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
             var alert;
             return __generator(this, function (_a) {
                 alert = this.alertCtrl.create({
@@ -448,10 +440,7 @@ var TinderRemoveCardModePage = /** @class */ (function () {
                     buttons: [
                         {
                             text: 'OK',
-                            handler: function () {
-                                _this.user_no_swipe_cnt = 0;
-                                _this.user_yes_swipe_cnt = 0;
-                            }
+                            handler: function () { }
                         }
                     ]
                 });
@@ -462,7 +451,7 @@ var TinderRemoveCardModePage = /** @class */ (function () {
     };
     TinderRemoveCardModePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-tinder-remove-card-mode',template:/*ion-inline-start:"C:\Users\souma\Documents\GitHub\dominion-selector\src\pages\tinder-remove-card-mode\tinder-remove-card-mode.html"*/'<!--\n  Generated template for the TinderRemoveCardModePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n      <ion-title>Tinder Remove To 10</ion-title>\n    </ion-navbar>\n  </ion-header>\n\n\n<ion-content padding>\n    <div class="flexbox" *ngIf="ready">\n        <sc-card padding *ngFor="let attendant of attendants" [orientation]="cardDirection" [tinder-card]="cardOverlay" [callDestroy]="attendant.destroyEvent"\n          [callLike]="attendant.likeEvent" (onLike)="onCardInteract($event)">\n          <div class="card-img">\n              <img class="dominion-card-img" [src]="attendant.image">\n          </div>\n          <!-- <div class="user_img" [style.background-image]="attendant.asBg"></div> -->\n        </sc-card>\n      </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\souma\Documents\GitHub\dominion-selector\src\pages\tinder-remove-card-mode\tinder-remove-card-mode.html"*/,
+            selector: 'page-tinder-remove-card-mode',template:/*ion-inline-start:"/Users/kuwaharasouba/Documents/GitHub/dominion-selector/src/pages/tinder-remove-card-mode/tinder-remove-card-mode.html"*/'<!--\n  Generated template for the TinderRemoveCardModePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n      <ion-title>Tinder Remove To 10</ion-title>\n    </ion-navbar>\n  </ion-header>\n\n\n<ion-content padding>\n    <div class="flexbox" *ngIf="ready">\n        <sc-card padding *ngFor="let attendant of attendants" [orientation]="cardDirection" [tinder-card]="cardOverlay" [callDestroy]="attendant.destroyEvent"\n          [callLike]="attendant.likeEvent" (onLike)="onCardInteract($event)">\n          <div class="card-img">\n              <img class="dominion-card-img" [src]="attendant.image">\n          </div>\n          <!-- <div class="user_img" [style.background-image]="attendant.asBg"></div> -->\n        </sc-card>\n      </div>\n</ion-content>\n'/*ion-inline-end:"/Users/kuwaharasouba/Documents/GitHub/dominion-selector/src/pages/tinder-remove-card-mode/tinder-remove-card-mode.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -615,7 +604,7 @@ var SettingPage = /** @class */ (function () {
     };
     SettingPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-setting',template:/*ion-inline-start:"C:\Users\souma\Documents\GitHub\dominion-selector\src\pages\setting\setting.html"*/'<!--\n  Generated template for the SettingPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Setting</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content class="outer-content">\n\n  <ion-list>\n    <ion-list-header>プレイ</ion-list-header>\n\n    <ion-item>\n      <ion-label>プレイ人数</ion-label>\n      <ion-select [(ngModel)]="num_of_people" (ionChange)="selectNumOfPeople()">\n        <ion-option [value]="2">2</ion-option>\n        <ion-option [value]="3">3</ion-option>\n        <ion-option [value]="4">4</ion-option>\n        <ion-option [value]="5">5</ion-option>\n        <ion-option [value]="6">6</ion-option>\n        <ion-option [value]="7">7</ion-option>\n        <ion-option [value]="8">8</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n\n  <ion-list>\n    <ion-list-header>シリーズ</ion-list-header>\n\n    <ion-item *ngFor="let s of series">\n      <ion-label>{{s.name}}</ion-label>\n      <ion-toggle [(ngModel)]="s.enable" (ionChange)="setSeries()" ></ion-toggle>\n    </ion-item>\n  </ion-list>\n\n</ion-content>'/*ion-inline-end:"C:\Users\souma\Documents\GitHub\dominion-selector\src\pages\setting\setting.html"*/,
+            selector: 'page-setting',template:/*ion-inline-start:"/Users/kuwaharasouba/Documents/GitHub/dominion-selector/src/pages/setting/setting.html"*/'<!--\n  Generated template for the SettingPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Setting</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content class="outer-content">\n\n  <ion-list>\n    <ion-list-header>プレイ</ion-list-header>\n\n    <ion-item>\n      <ion-label>プレイ人数</ion-label>\n      <ion-select [(ngModel)]="num_of_people" (ionChange)="selectNumOfPeople()">\n        <ion-option [value]="2">2</ion-option>\n        <ion-option [value]="3">3</ion-option>\n        <ion-option [value]="4">4</ion-option>\n        <ion-option [value]="5">5</ion-option>\n        <ion-option [value]="6">6</ion-option>\n        <ion-option [value]="7">7</ion-option>\n        <ion-option [value]="8">8</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n\n  <ion-list>\n    <ion-list-header>シリーズ</ion-list-header>\n\n    <ion-item *ngFor="let s of series">\n      <ion-label>{{s.name}}</ion-label>\n      <ion-toggle [(ngModel)]="s.enable" (ionChange)="setSeries()" ></ion-toggle>\n    </ion-item>\n  </ion-list>\n\n</ion-content>'/*ion-inline-end:"/Users/kuwaharasouba/Documents/GitHub/dominion-selector/src/pages/setting/setting.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -799,7 +788,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\souma\Documents\GitHub\dominion-selector\src\app\app.html"*/'<ion-menu [content]="content">\n\n\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Pages</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\souma\Documents\GitHub\dominion-selector\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/kuwaharasouba/Documents/GitHub/dominion-selector/src/app/app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Pages</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/Users/kuwaharasouba/Documents/GitHub/dominion-selector/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* MenuController */],
@@ -879,6 +868,9 @@ var CardListProvider = /** @class */ (function () {
         this.http = http;
         this.storage = storage;
     }
+    /**
+     * すべてのカードリストを取得する
+     */
     CardListProvider.prototype.getAll = function () {
         return __awaiter(this, void 0, void 0, function () {
             var cards;
@@ -892,6 +884,9 @@ var CardListProvider = /** @class */ (function () {
             });
         });
     };
+    /**
+     * Settingで指定されたシリーズのカードのみを選び出して取得する
+     */
     CardListProvider.prototype.getCards = function () {
         return __awaiter(this, void 0, void 0, function () {
             var series, cards, res;
@@ -913,6 +908,30 @@ var CardListProvider = /** @class */ (function () {
                             }
                         });
                         return [2 /*return*/, res];
+                }
+            });
+        });
+    };
+    /**
+     * 所得可能なカードをランダムに取得する
+     */
+    CardListProvider.prototype.getRamdomCards = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var cards, i, rand, _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, this.getCards()
+                        // 配列の値をランダムに入れ替える
+                    ];
+                    case 1:
+                        cards = _b.sent();
+                        // 配列の値をランダムに入れ替える
+                        for (i = cards.length - 1; i >= 0; i--) {
+                            rand = Math.floor(Math.random() * (i + 1));
+                            // 配列の数値を入れ替える
+                            _a = [cards[rand], cards[i]], cards[i] = _a[0], cards[rand] = _a[1];
+                        }
+                        return [2 /*return*/, cards];
                 }
             });
         });
