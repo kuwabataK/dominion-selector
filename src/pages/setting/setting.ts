@@ -1,5 +1,5 @@
-import { Component, EventEmitter } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Component} from '@angular/core';
+import { NavController, NavParams} from 'ionic-angular';
 import _ from 'lodash'
 import { StorageProvider } from '../../providers/storage/storage';
 import { CardListProvider } from '../../providers/card-list/card-list';

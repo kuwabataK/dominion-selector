@@ -18,11 +18,17 @@ export class CardListProvider {
   ) {
   }
 
+  /**
+   * すべてのカードリストを取得する
+   */
   async getAll(): Promise<Card[]> {
     const cards = await this.http.get("assets/json/card-list.json").toPromise()
     return cards.json()["cards"]
   }
 
+  /**
+   * Settingで指定されたシリーズのカードのみを選び出して取得する
+   */
   async getCards() {
     const series = await this.storage.getSeries()
     const cards = await this.getAll()
@@ -34,10 +40,28 @@ export class CardListProvider {
     let res: Card[] = []
     series.map((_s) => {
       if (_s.enable) {
-        res = res.concat(cards.filter((_card) => { return _card.series === _s.name }))
+        res = [...res, ...cards.filter((_card) => { return _card.series === _s.name })]
       }
     })
     return res
+  }
+
+  /**
+   * 所得可能なカードをランダムに取得する
+   */
+  async getRamdomCards(){
+    const cards = await this.getCards()
+
+    // 配列の値をランダムに入れ替える
+    for (var i = cards.length - 1; i >= 0; i--){
+
+      // 0~iのランダムな数値を取得
+      var rand = Math.floor( Math.random() * ( i + 1 ) );
+    
+      // 配列の数値を入れ替える
+      [cards[i], cards[rand]] = [cards[rand], cards[i]]
+    }
+    return cards
   }
 
 }
