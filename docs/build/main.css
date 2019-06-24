@@ -25680,12 +25680,12 @@ ion-navbar.toolbar {
 
 page-home sc-card {
   height: 550px !important;
-  max-width: 360px;
+  width: 351px !important;
 }
 
 page-home .dominion-card-img {
-  width: 300px;
-  height: 500px;
+  width: 351px;
+  height: 555px;
 }
 
 page-home .card-img {
@@ -25719,12 +25719,12 @@ page-setting .dominion-card-img {
 
 page-tinder-remove-card-mode sc-card {
   height: 550px !important;
-  max-width: 360px;
+  width: 351px !important;
 }
 
 page-tinder-remove-card-mode .dominion-card-img {
-  width: 300px;
-  height: 500px;
+  width: 351px;
+  height: 555px;
 }
 
 page-tinder-remove-card-mode .card-img {
