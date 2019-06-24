@@ -51,7 +51,10 @@
     <ion-list>
       <ion-item *ngFor="let card of cards">
         <ion-label>{{card.name}} </ion-label>
-        <ion-badge item-end>{{card.cost}}</ion-badge>
+        <ion-badge *ngIf="card.cost <= 2" class="low-num" item-end>{{card.cost}}</ion-badge>
+        <ion-badge *ngIf="3 <= card.cost && card.cost <= 4" class="middle-num" item-end>{{card.cost}}</ion-badge>
+        <ion-badge *ngIf="card.cost === 5" class="high-num" item-end>{{card.cost}}</ion-badge>
+        <ion-badge *ngIf="card.cost >= 6" class="very-high-num" item-end>{{card.cost}}</ion-badge>
       </ion-item>
     </ion-list>
 

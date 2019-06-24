@@ -25708,6 +25708,22 @@ page-home .flexbox {
   text-align: center;
 }
 
+page-result .low-num {
+  background-color: #0cd1e8;
+}
+
+page-result .middle-num {
+  background-color: #10dc60;
+}
+
+page-result .high-num {
+  background-color: #7044ff;
+}
+
+page-result .very-high-num {
+  background-color: #f04141;
+}
+
 page-setting sc-card {
   height: 550px !important;
 }
