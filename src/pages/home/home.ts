@@ -4,7 +4,7 @@ import { CardListProvider } from '../../providers/card-list/card-list';
 import _ from 'lodash'
 import { ResultPage } from '../result/result';
 import 'hammerjs';
-import { Card } from '../../model/app-models';
+import { Card, AttendantCard } from '../../model/app-models';
 
 /**
  * Generated class for the HomePage page.
@@ -29,7 +29,9 @@ export class HomePage {
   swipe_cnt = 0
 
   ready = false;
-  attendants = [];
+
+  // 以下swaipカード用のクラス変数たち
+  attendants: AttendantCard[] = [];
   cardDirection = "xy";
   cardOverlay: any = {
     like: {
@@ -46,7 +48,7 @@ export class HomePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private card_provider: CardListProvider,
-    private loadingCtrl:LoadingController,
+    private loadingCtrl: LoadingController,
 
   ) {
 
@@ -54,17 +56,15 @@ export class HomePage {
 
   async ionViewDidEnter() {
 
-    const loading = this.loadingCtrl.create({content: "Loading..."})
+    const loading = this.loadingCtrl.create({ content: "Loading..." })
     await loading.present()
 
-    const all_c = await this.card_provider.getRamdomCards()
-
-    this.card_list = all_c // とりあえず全部読み込む
+    this.card_list = await this.card_provider.getRamdomCards()
     this.attendants = []
     this.yes_card_list = []
     this.no_card_list = []
     this.remove_cnt = 0
-    
+
     this.readyCardList()
 
     this.ready = true;
@@ -105,7 +105,7 @@ export class HomePage {
       })
     }
 
-    if (this.yes_card_list.length + this.no_card_list.length  >= this.card_list.length + this.remove_cnt) {
+    if (this.yes_card_list.length + this.no_card_list.length >= this.card_list.length + this.remove_cnt) {
       console.log("全部のカードが無くなりました！！")
       this.remove_cnt = this.yes_card_list.length
       this.card_list = _.cloneDeep(this.no_card_list)

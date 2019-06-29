@@ -1,6 +1,6 @@
 import { Component, EventEmitter } from '@angular/core';
 import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
-import { Card } from '../../model/app-models';
+import { Card, AttendantCard } from '../../model/app-models';
 import { CardListProvider } from '../../providers/card-list/card-list';
 import { ResultPage } from '../result/result';
 import _ from 'lodash'
@@ -34,7 +34,7 @@ export class TinderRemoveCardModePage {
   user_yes_swipe_cnt = 0
 
   ready = false;
-  attendants = [];
+  attendants:AttendantCard[] = [];
   cardDirection = "xy";
   cardOverlay: any = {
     like: {

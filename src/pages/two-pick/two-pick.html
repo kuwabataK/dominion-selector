@@ -1,0 +1,53 @@
+<!--
+  Generated template for the TwoPickPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>2-pick</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-card (click)="onClickSelectCards(upCards)">  
+    <ion-card-content>
+      <ion-grid>
+
+        <ion-row>
+          <ng-container *ngFor="let card of upCards">
+            <ion-col col-6>
+              <img class="dominion-card-img" [src]="'assets/imgs/' + card.series + '/' + card.name + '.png'">
+            </ion-col>
+          </ng-container>
+
+        </ion-row>
+
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card (click)="onClickSelectCards(downCards)">  
+    <ion-card-content>
+      <ion-grid>
+
+        <ion-row>
+          <ng-container *ngFor="let card of downCards">
+            <ion-col col-6>
+              <img class="dominion-card-img" [src]="'assets/imgs/' + card.series + '/' + card.name + '.png'">
+            </ion-col>
+          </ng-container>
+
+        </ion-row>
+
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>

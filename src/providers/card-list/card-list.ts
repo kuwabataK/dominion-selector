@@ -47,7 +47,9 @@ export class CardListProvider {
   }
 
   /**
-   * 所得可能なカードをランダムに取得する
+   * 所得可能なカードをすべて所得し、ランダムな順番に並び替える
+   * 
+   * @returns ランダムな順番に並び替えられた所得可能なカードのリスト
    */
   async getRamdomCards(){
     const cards = await this.getCards()

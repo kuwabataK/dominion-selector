@@ -15,6 +15,7 @@ import { SettingPage } from '../pages/setting/setting';
 import { TinderRemoveCardModePage } from '../pages/tinder-remove-card-mode/tinder-remove-card-mode';
 import { IonicStorageModule } from '@ionic/storage';
 import { StorageProvider } from '../providers/storage/storage';
+import { TwoPickPage } from '../pages/two-pick/two-pick';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { StorageProvider } from '../providers/storage/storage';
     HomePage,
     ResultPage,
     SettingPage,
-    TinderRemoveCardModePage
+    TinderRemoveCardModePage,
+    TwoPickPage,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { StorageProvider } from '../providers/storage/storage';
     HomePage,
     ResultPage,
     SettingPage,
-    TinderRemoveCardModePage
+    TinderRemoveCardModePage,
+    TwoPickPage
   ],
   providers: [
     StatusBar,

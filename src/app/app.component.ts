@@ -8,6 +8,7 @@ import { HomePage } from '../pages/home/home';
 import 'hammerjs';
 import { TinderRemoveCardModePage } from '../pages/tinder-remove-card-mode/tinder-remove-card-mode';
 import { SettingPage } from '../pages/setting/setting';
+import { TwoPickPage } from '../pages/two-pick/two-pick';
 
 
 @Component({
@@ -32,6 +33,7 @@ export class MyApp {
     this.pages = [
       { title: 'Tinder Select 10', component: HomePage },
       { title: 'Tinder Remove To 10', component: TinderRemoveCardModePage },
+      { title: '2-Pick', component: TwoPickPage },
       { title: 'Setting', component: SettingPage },
     ];
   }
